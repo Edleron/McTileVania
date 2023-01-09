@@ -50,3 +50,6 @@ TagManager:
   - name: Platforms
     uniqueID: 990436419
     locked: 0
+  - name: Hero
+    uniqueID: 2039229479
+    locked: 0
