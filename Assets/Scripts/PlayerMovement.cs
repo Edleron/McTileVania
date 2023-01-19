@@ -35,6 +35,10 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FlipSprite()
     {
+        // Mathf.Abs        -> Bir değerin, mutlak değerini döndürür.
+        // Mathf.Epsilon    -> Bir değerin sıfırdan farklı alabileceği en küçük değer.
+        // Mathf.Sign       -> bir değeri ki bu değer f olsun, f pozitif veya sıfır olduğunda 1, f negatif olduğunda -1'dir.
+
         bool playerHasHorizontalSpeed = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
 
         if (playerHasHorizontalSpeed)
