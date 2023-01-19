@@ -442,6 +442,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hero
       objectReference: {fileID: 0}
+    - target: {fileID: 2779944530605043848, guid: c0f66ef9c7d0bbc4ea56e7251c9510f2, type: 3}
+      propertyPath: m_GravityScale
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779944530605043848, guid: c0f66ef9c7d0bbc4ea56e7251c9510f2, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7984497434363331639, guid: c0f66ef9c7d0bbc4ea56e7251c9510f2, type: 3}
+      propertyPath: jumpSpeed
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0f66ef9c7d0bbc4ea56e7251c9510f2, type: 3}
 --- !u!1 &360859915
