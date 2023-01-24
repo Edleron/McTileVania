@@ -6,33 +6,61 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
 
+    #region Serialize Variables
     [SerializeField] float runSpeed = 10.0f;
     [SerializeField] float jumpSpeed = 5.0f;
+    [SerializeField] float climbSpeed = 5.0f;
+    #endregion
 
+    #region Component Referances
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
     Animator myAnimator;
+    CapsuleCollider2D myCapsuleCollider;
+    #endregion
 
+    #region Variables
+    private float gravityScaleAtStart;
+    #endregion
+
+    #region Start
     private void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
+        myCapsuleCollider = GetComponent<CapsuleCollider2D>();
+        gravityScaleAtStart = myRigidbody.gravityScale;
     }
+    #endregion
 
+    #region Update
     private void Update()
     {
         Run();
         FlipSprite();
+        ClimbLadder();
     }
+    #endregion
 
+    #region Character Move Player Input, Event System
     private void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
         Debug.Log(moveInput);
     }
+    #endregion
 
+    #region  Character Jump Player Input, Event System
     private void OnJump(InputValue value)
     {
+        // when we hit the ground.
+        // IsTouchingLayers -> Bu çarpıştırıcının belirtilen layerMask üzerindeki herhangi bir çarpıştırıcıya temas edip etmediği.
+        // LayerMask.GetMask -> Verilen input değerine göre, layer int adresinin döner.
+        if (!myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        {
+            return;
+        }
+
         if (value.isPressed)
         {
             // do stuff
@@ -40,7 +68,9 @@ public class PlayerMovement : MonoBehaviour
             myRigidbody.velocity += new Vector2(0.0f, jumpSpeed);
         }
     }
+    #endregion
 
+    #region Character Run Main Code
     private void Run()
     {
         Vector2 playerVelocity = new Vector2(moveInput.x * runSpeed, myRigidbody.velocity.y);
@@ -50,6 +80,9 @@ public class PlayerMovement : MonoBehaviour
 
         myAnimator.SetBool("isRunning", playerHasHorizontalSpeed);
     }
+    #endregion
+
+    #region  Character Flip Sprite Main Code
     private void FlipSprite()
     {
         // Mathf.Abs        -> Bir değerin, mutlak değerini döndürür.
@@ -63,4 +96,24 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector2(Mathf.Sign(myRigidbody.velocity.x), 1.0f);
         }
     }
+    #endregion
+
+    #region  Character Climbing Main Code
+    private void ClimbLadder()
+    {
+        if (!myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")))
+        {
+            myRigidbody.gravityScale = gravityScaleAtStart;
+            myAnimator.SetBool("isClimbing", false);
+            return;
+        }
+
+        Vector2 climbVelocity = new Vector2(myRigidbody.velocity.x, moveInput.y * climbSpeed);
+        myRigidbody.velocity = climbVelocity;
+        myRigidbody.gravityScale = 0.0f;
+
+        bool playerHasVerticalSpeed = Mathf.Abs(myRigidbody.velocity.y) > Mathf.Epsilon;
+        myAnimator.SetBool("isClimbing", playerHasVerticalSpeed);
+    }
+    #endregion
 }
