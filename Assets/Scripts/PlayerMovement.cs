@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     #region Variables
     private float gravityScaleAtStart;
+    private bool isAlive = true;
     #endregion
 
     #region Start
@@ -38,15 +39,20 @@ public class PlayerMovement : MonoBehaviour
     #region Update
     private void Update()
     {
+        if (!isAlive) { return; }
+
         Run();
         FlipSprite();
         ClimbLadder();
+        Die();
     }
     #endregion
 
     #region Character Move Player Input, Event System
     private void OnMove(InputValue value)
     {
+        if (!isAlive) { return; }
+
         moveInput = value.Get<Vector2>();
         Debug.Log(moveInput);
     }
@@ -55,6 +61,8 @@ public class PlayerMovement : MonoBehaviour
     #region  Character Jump Player Input, Event System
     private void OnJump(InputValue value)
     {
+        if (!isAlive) { return; }
+
         // when we hit the ground.
         // IsTouchingLayers -> Bu çarpıştırıcının belirtilen layerMask üzerindeki herhangi bir çarpıştırıcıya temas edip etmediği.
         // LayerMask.GetMask -> Verilen input değerine göre, layer int adresinin döner.
@@ -116,6 +124,16 @@ public class PlayerMovement : MonoBehaviour
 
         bool playerHasVerticalSpeed = Mathf.Abs(myRigidbody.velocity.y) > Mathf.Epsilon;
         myAnimator.SetBool("isClimbing", playerHasVerticalSpeed);
+    }
+    #endregion
+
+    #region 
+    private void Die()
+    {
+        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")))
+        {
+            isAlive = false;
+        }
     }
     #endregion
 }
