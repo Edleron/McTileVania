@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float runSpeed = 10.0f;
     [SerializeField] float jumpSpeed = 5.0f;
     [SerializeField] float climbSpeed = 5.0f;
+    [SerializeField] Vector2 deathKick = new Vector2(20.0f, 20.0f);
     #endregion
 
     #region Component Referances
@@ -127,12 +128,14 @@ public class PlayerMovement : MonoBehaviour
     }
     #endregion
 
-    #region 
+    #region Death Hero
     private void Die()
     {
         if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")))
         {
             isAlive = false;
+            myAnimator.SetTrigger("Dying");
+            myRigidbody.velocity = deathKick;
         }
     }
     #endregion
