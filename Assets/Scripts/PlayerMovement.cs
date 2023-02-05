@@ -131,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
     #region Death Hero
     private void Die()
     {
-        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")))
+        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemies", "Hazards")))
         {
             isAlive = false;
             myAnimator.SetTrigger("Dying");
