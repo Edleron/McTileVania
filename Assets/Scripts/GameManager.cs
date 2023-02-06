@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     // Todo deprem gerçeği
+    // Todo deprem gerçeği
+    // Todo deprem gerçeği
     // Start is called before the first frame update
     void Start()
     {

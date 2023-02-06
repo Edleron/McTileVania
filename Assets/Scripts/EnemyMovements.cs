@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyMovements : MonoBehaviour
 {
     // Todo deprem gerçeği
+    // Todo deprem gerçeği
+    // Todo deprem gerçeği
     [SerializeField] float moveSpeed = 3.0f;
     Rigidbody2D myRigidbody;
 
