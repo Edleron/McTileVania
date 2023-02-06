@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    // Todo deprem gerçeği
     #region Serialize Variables
     [SerializeField] float runSpeed = 10.0f;
     [SerializeField] float jumpSpeed = 5.0f;
