@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     #region Variables
     private float gravityScaleAtStart;
-    private bool isAlive = true;
+    public bool isAlive = true;
     #endregion
 
     #region Start

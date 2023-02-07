@@ -73,7 +73,7 @@ MonoBehaviour:
     - {x: -1, y: 0, z: 0}
     - {x: 1, y: 0, z: 0}
     - {x: 0, y: -1, z: 0}
-    m_RuleTransform: 2
+    m_RuleTransform: 4
   - m_Id: 2
     m_Sprites:
     - {fileID: -738164493, guid: 5646627dbc0a4e148997b352ac665fac, type: 3}
@@ -148,7 +148,7 @@ MonoBehaviour:
     - {x: 1, y: 0, z: 0}
     - {x: 0, y: -1, z: 0}
     - {x: -1, y: 0, z: 0}
-    m_RuleTransform: 2
+    m_RuleTransform: 4
   - m_Id: 8
     m_Sprites:
     - {fileID: -628724026, guid: 5646627dbc0a4e148997b352ac665fac, type: 3}
