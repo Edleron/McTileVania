@@ -936,14 +936,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hero
       objectReference: {fileID: 0}
-    - target: {fileID: 7984497434363331639, guid: c0f66ef9c7d0bbc4ea56e7251c9510f2, type: 3}
-      propertyPath: deathKick.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7984497434363331639, guid: c0f66ef9c7d0bbc4ea56e7251c9510f2, type: 3}
-      propertyPath: deathKick.y
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0f66ef9c7d0bbc4ea56e7251c9510f2, type: 3}
 --- !u!4 &338642290 stripped
@@ -18855,7 +18847,7 @@ GameObject:
   - component: {fileID: 1553319270}
   m_Layer: 11
   m_Name: Gooober
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
