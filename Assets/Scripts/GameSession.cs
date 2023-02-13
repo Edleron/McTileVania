@@ -14,6 +14,11 @@ public class GameSession : MonoBehaviour
 
     void Awake()
     {
+        // todo : Çok basit mantığı vardır. Awake herşeyden önce çalışır.
+        // todo : ScenePersist'leri arıyoruz.
+        // todo : Eğer bu objeler 1'den büyük ise, birini destroy ediyoruz.
+        // todo : Eğer değilse Bunu destryo etme diyip, var olan objelerimiz korumunu sağlıyoruz.
+        // todo : Bu şekilde text'lerimiz aynı levelde olsak bile, lives sıfırlanmıyor
         int numGameSessions = FindObjectsOfType<GameSession>().Length;
         if (numGameSessions > 1)
         {
