@@ -1,7 +1,6 @@
-
 # README
 
-## MC QUIZ GAME
+## MC TileVania GAME
 
 This README is a guide representing Unity worksheets and sample code. This game is the fifth prototype clone game of edleron. I would like to thank game dev tv for their efforts.
 
@@ -28,5 +27,9 @@ This README is a guide representing Unity worksheets and sample code. This game 
 https://edleron.com
 ```
 
-* Unity Webgl Link
-* İtch.io Webgl Link
+
+```
+
+https://edleron.itch.io/mctilevania
+
+```
